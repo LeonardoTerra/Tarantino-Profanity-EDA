@@ -1,5 +1,5 @@
-# Notebooks
-Collection of Jupyter Notebooks for EDAs, Statistics and Machine Learning projects.
+# Playground
+This is a collection repository of Jupyter Notebooks for statistical EDAs and Machine Learning projects.
 
 ### Content:
 - EDAs with descriptive and predictive statistics
