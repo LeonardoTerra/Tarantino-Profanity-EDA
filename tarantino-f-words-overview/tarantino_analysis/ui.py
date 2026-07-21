@@ -3,7 +3,8 @@ import html
 import pandas as pd
 import streamlit as st
 
-from tarantino_analysis.config import CURSOR_LIGHT, LOCAL_CSV_PATH, SECTIONS
+from tarantino_analysis.config import CURSOR_LIGHT, LOCAL_CSV_PATH
+from tarantino_analysis.i18n import get_sections, render_language_toggle, t
 
 
 def build_paper_css() -> str:
@@ -318,8 +319,9 @@ def notebook_cell(code: str) -> None:
     st.markdown(f'<div class="notebook-cell">{html.escape(code)}</div>', unsafe_allow_html=True)
 
 
-def output_label(text: str = "Output") -> None:
-    st.markdown(f'<p class="output-label">{html.escape(text)}</p>', unsafe_allow_html=True)
+def output_label(text: str | None = None) -> None:
+    label = t("output.label") if text is None else text
+    st.markdown(f'<p class="output-label">{html.escape(label)}</p>', unsafe_allow_html=True)
 
 
 def format_cell(value: object) -> str:
@@ -349,9 +351,13 @@ def show_table(df: pd.DataFrame) -> None:
 
 def render_sidebar(source_file: str | None) -> None:
     with st.sidebar:
-        st.markdown("## Contents")
+        st.markdown(f"### {t('language.label')}")
+        render_language_toggle()
 
-        for index, section in enumerate(SECTIONS, start=1):
+        st.divider()
+        st.markdown(f"## {t('sidebar.contents')}")
+
+        for index, section in enumerate(get_sections(), start=1):
             st.markdown(f"**[{index}. {section['title']}](#{section['id']})**")
             st.markdown(
                 f'<p style="font-size:0.85rem;line-height:1.5;color:{CURSOR_LIGHT["text_muted"]};margin:0.2rem 0 0.65rem 0;">{section["description"]}</p>',
@@ -364,13 +370,13 @@ def render_sidebar(source_file: str | None) -> None:
                 )
 
         st.divider()
-        st.markdown("### Data")
+        st.markdown(f"### {t('sidebar.data')}")
 
         if source_file:
-            st.markdown(f"Local file: `{source_file}`")
+            st.markdown(f"{t('sidebar.local_file')}: `{source_file}`")
         else:
-            st.markdown(f"Expected file: `{LOCAL_CSV_PATH.name}`")
-            st.caption("Place the CSV next to the app script, or upload it below.")
-            uploaded = st.file_uploader("Upload dataset", type=["csv"], label_visibility="collapsed")
+            st.markdown(f"{t('sidebar.expected_file')}: `{LOCAL_CSV_PATH.name}`")
+            st.caption(t("sidebar.upload_hint"))
+            uploaded = st.file_uploader(t("sidebar.upload_label"), type=["csv"], label_visibility="collapsed")
             if uploaded is not None:
                 st.session_state["uploaded_csv"] = uploaded.getvalue()

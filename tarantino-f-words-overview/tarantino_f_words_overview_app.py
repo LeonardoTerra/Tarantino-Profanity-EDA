@@ -6,6 +6,7 @@ import streamlit as st
 from tarantino_analysis.charts import configure_paper_plot_style
 from tarantino_analysis.config import CSV_NAME, LOCAL_CSV_PATH
 from tarantino_analysis.data import dataset_source_label, load_dataset, prepare_dataframe
+from tarantino_analysis.i18n import t
 from tarantino_analysis.report import render_eda, render_insights, render_statistical_analysis, render_summary
 from tarantino_analysis.ui import apply_paper_style, render_sidebar
 
@@ -34,6 +35,9 @@ def main() -> None:
         initial_sidebar_state="expanded",
     )
 
+    if "language" not in st.session_state:
+        st.session_state.language = "en"
+
     apply_paper_style()
     configure_paper_plot_style()
 
@@ -42,10 +46,7 @@ def main() -> None:
 
     raw_df = resolve_dataset()
     if raw_df is None:
-        st.error(
-            f"Could not load the dataset. Expected file:\n\n`{LOCAL_CSV_PATH}`\n\n"
-            f"Save `{CSV_NAME}` in the same folder as this app, or upload it in the sidebar."
-        )
+        st.error(t("error.missing_dataset", path=str(LOCAL_CSV_PATH), filename=CSV_NAME))
         return
 
     df = prepare_dataframe(raw_df)
