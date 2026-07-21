@@ -1,6 +1,7 @@
 ## Tarantino Profanity & Deaths EDA
 
 An exploratory data analysis of profanity (F-words) and on-screen deaths across 7 Quentin Tarantino films.
+
 Access the document here: [Notebook](https://tarantino-f-words.streamlit.app/)
 
 ### Content:
