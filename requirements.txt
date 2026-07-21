@@ -1,0 +1,8 @@
+# Consolidated dependencies across all projects.
+# Each project also maintains its own requirements.txt for independent deployment.
+
+pandas>=2.0
+numpy>=1.24
+matplotlib>=3.7
+seaborn>=0.13
+streamlit>=1.28

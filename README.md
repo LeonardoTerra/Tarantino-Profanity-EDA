@@ -1,19 +1,24 @@
-# EDA
-Exploratory data analysis of profanity (F-words) and on-screen deaths across 7 Quentin Tarantino films.
-Access the Streamlit app here: [Streamlit App](https://tarantino-f-words.streamlit.app/)
+# Data Analyses — Monorepo
 
-## Content
-- Exploratory data analysis with descriptive statistics
-- Movie and genre-level breakdowns of F-words and deaths
-- Rate comparisons (words per minute, deaths per minute)
-- Files can be viewed locally or on Github, Colab and Kaggle
+A collection of exploratory data analyses and interactive Streamlit apps.
+
+Each project lives in its own subfolder and can be explored locally or deployed independently to Streamlit Cloud.
+
+## Projects
+
+| Project | Description | Streamlit App |
+|---------|-------------|---------------|
+| [tarantino-profanity](./tarantino-profanity/) | EDA of F-words and on-screen deaths across 7 Quentin Tarantino films | [tarantino-f-words.streamlit.app](https://tarantino-f-words.streamlit.app/) |
 
 ## Structure
 
 ```
-tarantino-f-words-overview/
-├── eda.ipynb                  # Main analysis notebook
-├── app.py                     # Streamlit app entry point
-├── 19_Tarantino_Profanity_Deaths.csv
-└── tarantino_analysis/        # App modules (charts, data, i18n, etc.)
+tarantino-profanity/          # Tarantino profanity & deaths EDA
+├── .streamlit/               # Streamlit theme config
+├── tarantino-f-words-overview/
+│   ├── app.py                # Streamlit app entry point
+│   ├── eda.ipynb             # Exploratory analysis notebook
+│   ├── requirements.txt      # Project dependencies
+│   └── tarantino_analysis/   # App modules (charts, data, i18n, etc.)
+└── README.md                 # Project-level documentation
 ```
