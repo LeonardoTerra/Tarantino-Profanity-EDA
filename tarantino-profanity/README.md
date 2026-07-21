@@ -14,9 +14,10 @@ Access the interactive Streamlit app here: [tarantino-f-words.streamlit.app](htt
 ## Structure
 
 ```
-tarantino-f-words-overview/
-├── eda.ipynb                  # Main analysis notebook
-├── app.py                     # Streamlit app entry point
+tarantino-profanity/
+├── tarantino_f_words_overview_app.py  # Streamlit app entry point
+├── app.py                             # Backward-compatible alias
+├── eda.ipynb                          # Main analysis notebook
 ├── 19_Tarantino_Profanity_Deaths.csv
-└── tarantino_analysis/        # App modules (charts, data, i18n, etc.)
+└── tarantino_analysis/                # App modules (charts, data, i18n, etc.)
 ```

@@ -13,12 +13,11 @@ Each project lives in its own subfolder and can be explored locally or deployed 
 ## Structure
 
 ```
-tarantino-profanity/          # Tarantino profanity & deaths EDA
-├── .streamlit/               # Streamlit theme config
-├── tarantino-f-words-overview/
-│   ├── app.py                # Streamlit app entry point
-│   ├── eda.ipynb             # Exploratory analysis notebook
-│   ├── requirements.txt      # Project dependencies
-│   └── tarantino_analysis/   # App modules (charts, data, i18n, etc.)
-└── README.md                 # Project-level documentation
+tarantino-profanity/              # Tarantino profanity & deaths EDA
+├── tarantino_f_words_overview_app.py
+├── app.py                        # Backward-compatible alias
+├── eda.ipynb                     # Exploratory analysis notebook
+├── requirements.txt              # Project dependencies
+├── tarantino_analysis/           # App modules (charts, data, i18n, etc.)
+└── README.md
 ```
