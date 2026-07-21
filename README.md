@@ -1,7 +1,6 @@
-# Data Analyses — Monorepo
+# Summary
 
 A collection of exploratory data analyses and interactive Streamlit apps.
-
 Each project lives in its own subfolder and can be explored locally or deployed independently to Streamlit Cloud.
 
 ## Projects
