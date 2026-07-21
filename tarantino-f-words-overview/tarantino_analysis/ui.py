@@ -288,6 +288,21 @@ def build_paper_css() -> str:
     section[data-testid="stSidebar"] a:hover {{
         text-decoration: underline;
     }}
+
+    section[data-testid="stSidebar"] .language-toggle-label {{
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: {c["text_muted"]} !important;
+        margin: 0 0 0.25rem 0;
+    }}
+
+    section[data-testid="stSidebar"] [data-testid="stButton"] button {{
+        font-size: 0.75rem !important;
+        padding: 0.15rem 0.55rem !important;
+        min-height: 1.5rem !important;
+        height: auto !important;
+        width: fit-content !important;
+    }}
 </style>
 """
 
@@ -351,7 +366,7 @@ def show_table(df: pd.DataFrame) -> None:
 
 def render_sidebar(source_file: str | None) -> None:
     with st.sidebar:
-        st.markdown(f"### {t('language.label')}")
+        st.markdown(f'<p class="language-toggle-label">{t("language.label")}</p>', unsafe_allow_html=True)
         render_language_toggle()
 
         st.divider()

@@ -242,6 +242,6 @@ def get_data_dictionary() -> dict[str, str]:
 
 
 def render_language_toggle() -> None:
-    if st.button(t("language.switch_to"), use_container_width=True, key="language_toggle"):
+    if st.button(t("language.switch_to"), key="language_toggle"):
         st.session_state.language = "pt" if get_language() == "en" else "en"
         st.rerun()
